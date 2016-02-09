@@ -1266,7 +1266,7 @@ namespace SQLinqTest
             var result = (SQLinqSelectResult)query.ToSQL();
 
             Assert.AreEqual("[Status] = @sqlinq_1", result.Where);
-            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.FirstValue, result.Parameters["@sqlinq_1"]);
+            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.FirstValue, (SQLinqTest.Where_Enum_Enum_001) result.Parameters["@sqlinq_1"]);
         }
 
         [TestMethod]
@@ -1280,7 +1280,7 @@ namespace SQLinqTest
             var result = (SQLinqSelectResult)query.ToSQL();
 
             Assert.AreEqual("Status = :sqlinq_1", result.Where);
-            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.FirstValue, result.Parameters[":sqlinq_1"]);
+            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.FirstValue, (SQLinqTest.Where_Enum_Enum_001) result.Parameters[":sqlinq_1"]);
         }
 
         [TestMethod]
@@ -1293,7 +1293,7 @@ namespace SQLinqTest
             var result = (SQLinqSelectResult)query.ToSQL();
 
             Assert.AreEqual("[Status] = @sqlinq_1", result.Where);
-            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.SecondValue, result.Parameters["@sqlinq_1"]);
+            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.SecondValue, (SQLinqTest.Where_Enum_Enum_001) result.Parameters["@sqlinq_1"]);
         }
 
         [TestMethod]
@@ -1307,7 +1307,7 @@ namespace SQLinqTest
             var result = (SQLinqSelectResult)query.ToSQL();
 
             Assert.AreEqual("Status = :sqlinq_1", result.Where);
-            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.SecondValue, result.Parameters[":sqlinq_1"]);
+            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_001.SecondValue, (SQLinqTest.Where_Enum_Enum_001) result.Parameters[":sqlinq_1"]);
         }
 
         private class Where_Enum_Class_001
@@ -1331,7 +1331,7 @@ namespace SQLinqTest
             var result = (SQLinqSelectResult)query.ToSQL();
 
             Assert.AreEqual("[Status] = @sqlinq_1", result.Where);
-            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_003.C, result.Parameters["@sqlinq_1"]);
+            Assert.AreEqual(SQLinqTest.Where_Enum_Enum_003.C, (SQLinqTest.Where_Enum_Enum_003) result.Parameters["@sqlinq_1"]);
         }
 
         private class Where_Enum_Class_003

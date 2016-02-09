@@ -224,6 +224,42 @@ namespace SQLinq.Dapper.Test
             }
         }
 
+        [TestMethod]
+        public void Execute_004_IdentityInsert_Int()
+        {
+            var expected = new IdentityTest_Int
+            {
+                Name = "Wes"
+            };
+
+            using (var con = GetDBConnection())
+            {
+                con.Open();
+                var trans = con.BeginTransaction();
+
+                try
+                {
+                    var query = new SQLinqInsert<IdentityTest_Int>(expected);
+
+                    var id = con.Execute<int>(query, trans);
+
+
+                    var actual = con.Query(from p in new SQLinq<IdentityTest_Int>()
+                                           where p.Id != default(int)
+                                           select p, trans).FirstOrDefault();
+
+                    Assert.IsNotNull(actual);
+                    Assert.AreNotEqual(default(int), actual.Id);
+                    Assert.AreEqual(id, actual.Id);
+                }
+                finally
+                {
+                    trans.Rollback();
+                    con.Close();
+                }
+            }
+        }
+
         #endregion
     }
 }

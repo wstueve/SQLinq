@@ -63,7 +63,7 @@ namespace SQLinq
                 parameterList.Append(f.Value);
             }
 
-            return string.Format("INSERT {0} ({1}) VALUES ({2})", this.Table, fieldList.ToString(), parameterList.ToString());
+            return string.Format("INSERT {0} ({1}) VALUES ({2});SELECT SCOPE_IDENTITY()", this.Table, fieldList.ToString(), parameterList.ToString());
         }
     }
 }

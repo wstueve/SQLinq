@@ -2,8 +2,10 @@
 //Licensed under the GNU Library General Public License (LGPL)
 //License can be found here: http://sqlinq.codeplex.com/license
 
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection;
 using DapperDotNet = Dapper;
 
 namespace SQLinq.Dapper
@@ -42,6 +44,30 @@ namespace SQLinq.Dapper
             var parameters = new DictionaryParameterObject(result.Parameters);
             
             return DapperDotNet.SqlMapper.Execute(dbconnection, sql, parameters, transaction, commandTimeout, commandType);
+        }
+
+        public static TIdentity Execute<TIdentity>(this IDbConnection dbconnection, ISQLinqInsert query,
+            IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        {
+            var result = query.ToSQL();
+
+            var sql = result.ToQuery();
+            var parameters = new DictionaryParameterObject(result.Parameters);
+
+            using (
+                var reader = DapperDotNet.SqlMapper.ExecuteReader(dbconnection, sql, parameters, transaction,
+                    commandTimeout, commandType))
+            {
+                if (reader.Read() && !reader.IsDBNull(0))
+                {
+                    var value = reader.GetValue(0);
+                    reader.Close();
+                    return (TIdentity) Convert.ChangeType(value, typeof(TIdentity));
+                }
+
+                return default(TIdentity);
+            }
+
         }
     }
 }

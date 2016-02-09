@@ -205,7 +205,7 @@ END
             var actualQuery = actual.ToQuery();
             var expectedQuery = @"IF (NOT(EXISTS(SELECT [ID] FROM [Person] WHERE [ID] = @sqlinq_1)))
 BEGIN
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7, @sqlinq_8)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7, @sqlinq_8);SELECT SCOPE_IDENTITY()
 END
 ";
 
@@ -236,7 +236,7 @@ END
             var actualQuery = actual.ToQuery();
             var expectedQuery = @"IF (EXISTS(SELECT [ID] FROM [Person] WHERE [ID] = @sqlinq_1))
 BEGIN
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7, @sqlinq_8)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7, @sqlinq_8);SELECT SCOPE_IDENTITY()
 END
 ";
 
@@ -272,7 +272,7 @@ UPDATE [Person] SET [ID] = @sqlinq_2, [FirstName] = @sqlinq_3, [LastName] = @sql
 END
 ELSE
 BEGIN
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_9, @sqlinq_10, @sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_9, @sqlinq_10, @sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15);SELECT SCOPE_IDENTITY()
 END
 ";
 

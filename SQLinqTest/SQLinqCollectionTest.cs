@@ -180,7 +180,7 @@ SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_2
             var expectedQuery = @"SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_1
 SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_2
 UPDATE [Person] SET [ID] = @sqlinq_3, [FirstName] = @sqlinq_4, [LastName] = @sqlinq_5, [Age] = @sqlinq_6, [Is_Employed] = @sqlinq_7, [ParentID] = @sqlinq_8, [Column With Spaces] = @sqlinq_9 WHERE [ID] = @sqlinq_10
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17);SELECT SCOPE_IDENTITY()
 ";
 
             Assert.AreEqual(expectedQuery, actualQuery);
@@ -233,7 +233,7 @@ INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID]
             var expectedQuery = @"SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_1
 SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_2
 UPDATE [Person] SET [ID] = @sqlinq_3, [FirstName] = @sqlinq_4, [LastName] = @sqlinq_5, [Age] = @sqlinq_6, [Is_Employed] = @sqlinq_7, [ParentID] = @sqlinq_8, [Column With Spaces] = @sqlinq_9 WHERE [ID] = @sqlinq_10
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17);SELECT SCOPE_IDENTITY()
 IF (EXISTS(SELECT @sqlinq_18 FROM [Person] WHERE [ID] = @sqlinq_19))
 BEGIN
 SELECT [ID], [FirstName], [LastName], [Age], [Is_Employed] AS [IsEmployed], [ParentID], [Column With Spaces] AS [ColumnWithSpaces] FROM [Person] WHERE [ID] = @sqlinq_20
@@ -313,7 +313,7 @@ END
             var expectedQuery = @"SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_1
 SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_2
 UPDATE [Person] SET [ID] = @sqlinq_3, [FirstName] = @sqlinq_4, [LastName] = @sqlinq_5, [Age] = @sqlinq_6, [Is_Employed] = @sqlinq_7, [ParentID] = @sqlinq_8, [Column With Spaces] = @sqlinq_9 WHERE [ID] = @sqlinq_10
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_11, @sqlinq_12, @sqlinq_13, @sqlinq_14, @sqlinq_15, @sqlinq_16, @sqlinq_17);SELECT SCOPE_IDENTITY()
 IF (EXISTS(SELECT @sqlinq_18 FROM [Person] WHERE [ID] = @sqlinq_19))
 BEGIN
 SELECT [ID], [FirstName], [LastName], [Age], [Is_Employed] AS [IsEmployed], [ParentID], [Column With Spaces] AS [ColumnWithSpaces] FROM [Person] WHERE [ID] = @sqlinq_20
@@ -322,7 +322,7 @@ END
 SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_21
 SELECT * FROM [ICar] WHERE [WheelDiameter] = @sqlinq_22
 UPDATE [Person] SET [ID] = @sqlinq_23, [FirstName] = @sqlinq_24, [LastName] = @sqlinq_25, [Age] = @sqlinq_26, [Is_Employed] = @sqlinq_27, [ParentID] = @sqlinq_28, [Column With Spaces] = @sqlinq_29 WHERE [ID] = @sqlinq_30
-INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_31, @sqlinq_32, @sqlinq_33, @sqlinq_34, @sqlinq_35, @sqlinq_36, @sqlinq_37)
+INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_31, @sqlinq_32, @sqlinq_33, @sqlinq_34, @sqlinq_35, @sqlinq_36, @sqlinq_37);SELECT SCOPE_IDENTITY()
 IF (EXISTS(SELECT @sqlinq_38 FROM [Person] WHERE [ID] = @sqlinq_39))
 BEGIN
 SELECT [ID], [FirstName], [LastName], [Age], [Is_Employed] AS [IsEmployed], [ParentID], [Column With Spaces] AS [ColumnWithSpaces] FROM [Person] WHERE [ID] = @sqlinq_40

@@ -62,7 +62,7 @@ namespace SQLinqTest
             var result = target.ToSQL();
             var actual = result.ToQuery();
 
-            Assert.AreEqual("INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_1, @sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7)", actual);
+            Assert.AreEqual("INSERT [Person] ([ID], [FirstName], [LastName], [Age], [Is_Employed], [ParentID], [Column With Spaces]) VALUES (@sqlinq_1, @sqlinq_2, @sqlinq_3, @sqlinq_4, @sqlinq_5, @sqlinq_6, @sqlinq_7);SELECT SCOPE_IDENTITY()", actual);
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
